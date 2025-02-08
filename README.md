@@ -1,4 +1,3 @@
-```md
 # secho - Simple Echo with Multipliers
 
 **secho** is a minimal C utility for printing a string multiple times, with optional newline control. Unlike standard `echo`, it allows multiplying strings like `"hello"*3`, making it useful for scripting and automation.
@@ -58,7 +57,6 @@ secho -s "chicken" -n 3 | cowsay
 Show help menu:
 ```sh
 secho -h
-```
 
 ## License
 Licensed under **GPL-3.0**. See `LICENSE` for details.
