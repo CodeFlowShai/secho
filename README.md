@@ -57,7 +57,7 @@ secho -s "chicken" -n 3 | cowsay
 Show help menu:
 ```sh
 secho -h
-
+```
 ## License
 Licensed under **GPL-3.0**. See `LICENSE` for details.
 ```
