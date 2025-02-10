@@ -5,6 +5,7 @@
 ## Features
 - Print a string multiple times (`-n` option)
 - Control whether repetitions appear on new lines (`-l` option)
+- Reverse the string output (`-r` option) 
 - Uses **syscalls (`write()`)** for minimal overhead
 - No dependencies beyond **glibc**
 - Help menu (`-h` option)
@@ -36,6 +37,18 @@ secho -s "hello" -n 3 -l
 **Output:**
 ```
 hellohellohello
+```
+
+
+Reverse output:
+```sh
+secho -s "hello" -n 3 -r
+```
+**Output:**
+```
+olleh
+olleh
+olleh
 ```
 
 ### **The Ultimate Use Case**
