@@ -13,10 +13,8 @@
 ## Installation
 Clone the repo and compile with `gcc`:
 ```sh
-git clone https://github.com/CodeFlowShai/secho.git
-cd secho
-gcc -o secho main.c
-sudo mv secho /usr/local/bin/
+curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.0.2/secho -o /usr/local/bin/secho
+chmod +x /usr/local/bin/secho
 ```
 
 ## Usage
