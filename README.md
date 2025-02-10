@@ -13,8 +13,8 @@
 ## Installation
 Clone the repo and compile with `gcc`:
 ```sh
-curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.0.2/secho -o /usr/local/bin/secho
-chmod +x /usr/local/bin/secho
+sudo curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.0.2/secho -o /usr/local/bin/secho
+sudo chmod +x /usr/local/bin/secho
 ```
 
 ## Usage
