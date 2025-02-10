@@ -26,7 +26,7 @@ int main(int argc, char *argv[])
                 s_provided = 1;
                 break;
             case 'h':
-                out("Usage: secho -s <string> [-n <number>] [-l] [-h]\nOptions:\n  -s <string>   Specify the string to print (required).\n  -n <number>   Repeat the string the specified number of times.\n  -l            Print all repetitions on the same line without newlines.\n  -h            Show this help message and exit.\n");
+                out("Usage: secho -s <string> [-n <number>] [-l] [-r] [-h] [-c <color>]\nOptions:\n  -s <string>   Specify the string to print (required).\n  -n <number>   Repeat the string the specified number of times.\n  -l            Print all repetitions on the same line without newlines.\n  -h            Show this help message and exit.\n  -r            Print the string in reverse.\n  -c <color>    Show this help message and exit\n");
                 exit(0);
             case 'l':
                 outNl = 0;
@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
                 reverse = 1;
                 break;
             default:
-                err("Invalid input!\nUsage: secho -s <string> [-n <number>] [-l] [-h]\nOptions:\n  -s <string>   Specify the string to print (required).\n  -n <number>   Repeat the string the specified number of times.\n  -l            Print all repetitions on the same line without newlines.\n  -h            Show this help message and exit.\n");
+                err("Invalid input!\nUsage: secho -s <string> [-n <number>] [-l] [-h] [-r] [-c <color>]\nOptions:\n  -s <string>   Specify the string to print (required).\n  -n <number>   Repeat the string the specified number of times.\n  -l            Print all repetitions on the same line without newlines.\n  -h            Show this help message and exit.\n  -r            Print the string in reverse.\n  -c <color>    Show this help message and exit\n");
                 exit(1);
         }
     }
