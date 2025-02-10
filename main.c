@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
     }
 
     for (int i = 0; i < times; i++) {
-        if (reverse = 1) {
+        if (reverse == 1) {
             out(rev_s);
         }
         else {
