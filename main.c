@@ -11,6 +11,20 @@ void err(char str[]) {
     write(2, str, strlen(str));
 }
 
+void usage() {
+    err("Usage: secho -s <string> [-n <number>] [-l] [-h] [-r] [-c <color>]\n");
+}
+
+int checkpipe() {
+    if (!isatty(STDOUT_FILENO)) {
+        return 1;
+    }
+    if (!isatty(STDERR_FILENO)) {
+        return 1;
+    }
+    return 0;
+}
+
 void strlower(char *str) {
     for (int i = 0; str[i] != '\0'; i++) {
         str[i] = tolower(str[i]);
@@ -25,6 +39,7 @@ int main(int argc, char *argv[]) {
     int reverse = 0;
     int opt;
     char c[3] = "0";
+    int c_used = 0;
 
     while ((opt = getopt(argc, argv, "n:s:c:rlh")) != -1) {
         switch (opt) {
@@ -36,6 +51,7 @@ int main(int argc, char *argv[]) {
                 s_provided = 1;
                 break;
             case 'c':
+                c_used = 1;
                 strlower(optarg);
                 if (strcmp(optarg, "red") == 0) strcpy(c, "31");
                 else if (strcmp(optarg, "green") == 0) strcpy(c, "32");
@@ -45,13 +61,17 @@ int main(int argc, char *argv[]) {
                 else if (strcmp(optarg, "cyan") == 0) strcpy(c, "36");
                 else if (strcmp(optarg, "white") == 0) strcpy(c, "37");
                 else {
-                    err("Invalid color!\nUsage: secho -s <string> [-n <number>] [-l] [-h] [-r] [-c <color>]\n");
-                    return 1;
+                    err("Invalid color!\n");
+                    usage();
+                    exit(1);
+                }
+                if (checkpipe() != 0) {
+                    c_used = 0;
                 }
                 break;
             case 'h':
-                out("Usage: secho -s <string> [-n <number>] [-l] [-h] [-r] [-c <color>]\n");
-                exit(0);
+                usage();
+            exit(0);
             case 'l':
                 outNl = 0;
                 break;
@@ -59,9 +79,10 @@ int main(int argc, char *argv[]) {
                 reverse = 1;
                 break;
             default:
-                err("Invalid input!\nUsage: secho -s <string> [-n <number>] [-l] [-h] [-r] [-c <color>]\n");
-                return 1;
-        }
+                err("Invalid input!\n");
+                usage();
+                exit(1);
+            }
     }
 
     if (times <= 0) {
@@ -69,7 +90,7 @@ int main(int argc, char *argv[]) {
     }
     if (!s_provided) {
         err("Error: -s <string> is required!\n");
-        return 1;
+        exit(1);
     }
 
     char rev_s[strlen(s) + 1];
@@ -84,15 +105,18 @@ int main(int argc, char *argv[]) {
     strcpy(ansi_code, "\e[");
     strcat(ansi_code, c);
     strcat(ansi_code, "m");
-
     for (int i = 0; i < times; i++) {
-        out(ansi_code);
+        if (c_used == 1) {
+            out(ansi_code);
+        }
         if (reverse == 1) {
             out(rev_s);
         } else {
             out(s);
         }
-        out("\e[0m");
+        if (c_used == 1) {
+            out("\e[0m");
+        }
         if (outNl == 1) {
             out("\n");
         }
