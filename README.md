@@ -6,7 +6,6 @@
 - Print a string multiple times (`-n` option)
 - Control whether repetitions appear on new lines (`-l` option)
 - Reverse the string output (`-r` option)
-- Change the color (`-c` option)
 - Uses **syscalls (`write()`)** for minimal overhead
 - No dependencies beyond **glibc**
 - Help menu (`-h` option)
