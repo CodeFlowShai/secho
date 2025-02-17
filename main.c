@@ -40,8 +40,10 @@ int main(int argc, char *argv[]) {
     int opt;
     char c[3] = "0";
     int c_used = 0;
-
-    while ((opt = getopt(argc, argv, "n:s:c:rlh")) != -1) {
+    int wave = 0;
+    int wave_direction = 0;
+    int wave_space = -1;
+    while ((opt = getopt(argc, argv, "n:s:c:rlhw")) != -1) {
         switch (opt) {
             case 'n':
                 times = atoi(optarg);
@@ -78,6 +80,9 @@ int main(int argc, char *argv[]) {
             case 'r':
                 reverse = 1;
                 break;
+            case 'w':
+                wave = 1;
+                break;
             default:
                 err("Invalid input!\n");
                 usage();
@@ -109,6 +114,21 @@ int main(int argc, char *argv[]) {
         if (c_used == 1) {
             out(ansi_code);
         }
+        if (wave == 1) {
+            if (wave_space <= 0) {
+                wave_direction = 1;
+            } else if (wave_space >= 3) {
+                wave_direction = 0;
+            }
+            if (wave_direction == 1) {
+                wave_space++;
+            } else {
+                wave_space--;
+            }
+            for (int i = 0; i < wave_space; i++) {
+                out(" ");
+            }
+        }        
         if (reverse == 1) {
             out(rev_s);
         } else {
