@@ -14,7 +14,7 @@
 ## Installation
 Clone the repo and compile with `gcc`:
 ```sh
-sudo curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.2.0secho -o /usr/local/bin/secho
+sudo curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.2.0/secho -o /usr/local/bin/secho
 sudo chmod +x /usr/local/bin/secho
 ```
 
