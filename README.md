@@ -7,13 +7,14 @@
 - Control whether repetitions appear on new lines (`-l` option)
 - Reverse the string output (`-r` option)
 - Change the color (`-c` option)
+- Create a wave effect (`-w` option)
 - Uses **syscalls (`write()`)** for minimal overhead
 - No dependencies beyond **glibc**
 - Help menu (`-h` option)
 ## Installation
 Clone the repo and compile with `gcc`:
 ```sh
-sudo curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.1.1/secho -o /usr/local/bin/secho
+sudo curl -L https://github.com/CodeFlowShai/secho/releases/download/v0.2.0secho -o /usr/local/bin/secho
 sudo chmod +x /usr/local/bin/secho
 ```
 
