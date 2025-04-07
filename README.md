@@ -70,5 +70,6 @@ Show help menu:
 ```sh
 secho -h
 ```
+
 ## License
 Licensed under **GPL-3.0**. See `LICENSE` for details.
