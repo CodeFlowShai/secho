@@ -2,9 +2,9 @@ CC = gcc
 CFLAGS = -Wall -Wextra -O2
 LDFLAGS =
 
-SRC = main.c helpers.c options.c
-OBJ = $(SRC:.c=.o)
 BIN = secho
+SRC = main.c
+OBJ = $(SRC:.c=.o)
 
 .PHONY: all clean install uninstall
 
